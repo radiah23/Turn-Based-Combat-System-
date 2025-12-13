@@ -19,7 +19,7 @@ In this text-based combat game, players control a Wizard in battle against a for
 - **Dynamic AI Behavior**: Dragon performs different attacks based on random chance:
   - Basic attack (75% chance)
   - Scorching fire attack - 3x damage (20% chance)
-  - Life-stealing bite - 3x damage + self-heal (5% chance)
+  - Life-stealing bite - 3x damage + heal 20 HP (5% chance)
 - **Game State Management**: Implements the Memento pattern for undo functionality
 - **Health Tracking**: Real-time health monitoring for both combatants
 
@@ -138,10 +138,11 @@ WizardHealth Power100Max Health100Base Power15
 DragonHealth Power150Max Health150Base Power20
 
 0. Retreat 1. Simple Attack 2. Heal (Spell) 3. Undo (Spell)
-> 1
+1
 
-Dragon takes a hit for 15 damage from Wizard
-Dragon scorched Wizard with searing fire, dealing 60 damage
+Dragontakes a hit for15damage fromWizard
+WinWizardtakes a hit for20damage fromDragon
+Victory
 ...
 ```
 
@@ -161,9 +162,11 @@ Dragon scorched Wizard with searing fire, dealing 60 damage
 
 ### AI Behavior
 The Dragon uses a random number generator (1-20) to determine its action:
-- **1-15**: Normal attack (15/20 = 75% chance)
-- **16-19**: Scorching fire attack (4/20 = 20% chance)
-- **20**: Life-stealing bite (1/20 = 5% chance)
+- **1-15**: Normal attack (75% chance)
+- **16-19**: Scorching fire attack (20% chance)
+- **20**: Life-stealing bite (5% chance)
+
+The probabilities are calculated from the ranges: 15 numbers out of 20 for normal attack (75%), 4 numbers for scorching fire (20%), and 1 number for life-stealing bite (5%).
 
 ## 🗂️ File Structure
 
